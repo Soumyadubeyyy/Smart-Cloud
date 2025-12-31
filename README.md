@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# ☁️ Smart Cloud
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Smart Cloud** is an intelligent document management platform that solves the biggest problem with cloud storage: **Organization.** Instead of forcing you to manually sort files into folders, Smart Cloud uses **Generative AI** to automatically categorize, tag, and summarize every document you upload. It replaces keyword search with **Semantic Search**, allowing you to find files based on what they *mean*, not just what they are named.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+- **Frontend (Vercel):** [https://smart-cloud.vercel.app/](https://smart-cloud.vercel.app/)
+- **Backend API (Render):** [https://smart-cloud-backend.onrender.com/docs](https://smart-cloud-backend.onrender.com/docs)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🌟 Why Smart Cloud? (The "Smart" Factors)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. 🏷️ Zero-Touch Auto-Categorization
+Stop wasting time creating folders. As soon as you upload a file, **Gemini AI** analyzes the content and automatically assigns it to the correct category (e.g., *Legal, Finance, Medical, Career*).
+> **Example:** Upload a file named `scan_2024.pdf`. The AI reads it, realizes it's a resume, and instantly tags it as **"Career"** with a generated summary.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 2. 🧠 Context-Aware Smart Search
+Forget exact filename matches. Smart Cloud uses **Vector Embeddings (Voyage AI)** to understand your search intent.
+> **Example:** You search for *"how much did I spend on groceries?"*. The system finds your file named `receipt_december.png` because it understands the context of the document content.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📸 Screenshots
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### **Interactive Dashboard**
+Visual analytics of storage usage, file types, and recent activity.
+<img width="1876" height="867" alt="Screenshot 2025-12-12 101918" src="https://github.com/user-attachments/assets/03d617de-2ac2-4145-a24f-5772ae7d2fc6" />
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### **Smart File Upload**
+Drag-and-drop interface with immediate AI processing.
+<img width="1906" height="867" alt="Screenshot 2025-12-12 101851" src="https://github.com/user-attachments/assets/118db2de-b9e8-46a3-8f68-8c5489c418d3" />
+
+
+### **Organized File Management**
+Categorized views with AI-generated summaries and semantic search.
+<img width="1538" height="748" alt="Screenshot 2025-12-12 101947" src="https://github.com/user-attachments/assets/3ffb764c-09bf-468a-b4af-3b0cc769a69c" />
+
+
+---
+
+## ✨ Key Features
+
+* **🔐 Secure Authentication:** Robust user management (Sign Up, Login, Logout) powered by **Supabase Auth**.
+* **📂 Smart File Management:** Upload, organize, and manage files with real-time storage tracking.
+* **🤖 AI-Powered Summarization:** Automatically generates concise summaries of uploaded documents using **Google Gemini AI**.
+* **🔍 Semantic Search:** Find files by *meaning*, not just keywords. Uses **Voyage AI** embeddings and **pgvector** for high-accuracy retrieval.
+* **📊 Interactive Dashboard:** Visual analytics of storage usage, file types, and upload trends.
+* **🔗 Secure Sharing:** Generate time-limited, password-protected public links for file sharing.
+* **📱 Responsive UI:** Modern, dark-mode ready interface built with **React**, **Tailwind CSS**, and **Shadcn/UI**.
+
+---
+
+## 🛠️ Tech Stack
+
+### **Frontend**
+* **Framework:** React (Vite)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS, Shadcn/UI
+* **State/API:** Axios, React Router, Context API
+* **Icons:** Lucide React
+
+### **Backend**
+* **Framework:** FastAPI (Python)
+* **Server:** Uvicorn
+* **Database:** Supabase (PostgreSQL + pgvector)
+* **Storage:** Supabase Storage (S3 compatible)
+* **AI Integration:** Google Gemini (Content Generation), Voyage AI (Embeddings)
+
+### **Deployment**
+* **Frontend:** Vercel
+* **Backend:** Render
+
+---
+
+## ⚙️ Architecture
+
+The application follows a decoupled microservices architecture:
+
+1.  **Frontend:** A React SPA interacting with the backend via RESTful API calls.
+2.  **Backend:** A FastAPI service that orchestrates DB operations, file handling, and AI processing.
+3.  **Database:** PostgreSQL stores metadata and vector embeddings; Supabase Storage holds the actual files.
+4.  **AI Services:** External calls to Gemini and Voyage AI for processing content.
+
+---
