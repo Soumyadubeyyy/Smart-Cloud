@@ -1,0 +1,13 @@
+# backend/.gitignore
+
+__pycache__/
+venv/
+.env
+.DS_Store
+
+# frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
